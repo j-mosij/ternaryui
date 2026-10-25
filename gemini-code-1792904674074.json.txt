@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0-anon",
+  "module": "ternary_loom_core",
+  "author_handle": "j-mosij",
+  "core_shell_spec": {
+    "transition_metal": "Copper (Cu)",
+    "liquid_shell": "Gallium (Ga) / EGaIn Alloy",
+    "lattice_topology": "Triple Toric Möbius-Klein Double Helix",
+    "trit_compression": "5-Trit Undecimal (3^5 = 243 States)"
+  },
+  "security_parameters": {
+    "pqc_encapsulation": "Simulated Kyber-1024 / Dilithium Lattice",
+    "side_channel_mitigation": "Asynchronous Float64Array Heap Noise Masking",
+    "anti_cloning_token": "Canvas Fingerprint + Execution Timing Hash"
+  }
+}

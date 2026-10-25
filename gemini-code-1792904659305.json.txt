@@ -1,0 +1,35 @@
+{
+  "name": "ternaryui",
+  "version": "1.0.0",
+  "description": "Ternary Metamaterial Loom Weaver, Tryte-x5 Tensor Engine, and PQC Side-Channel Security Dashboard",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 8080",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-mosij/ternaryui.git"
+  },
+  "keywords": [
+    "metamaterial",
+    "ternary",
+    "tryte",
+    "pqc",
+    "web-audio",
+    "canvas",
+    "security"
+  ],
+  "author": "Jeremiah Mosij <jmodulo.io@gmail.com> (j-mosij)",
+  "license": "CC-BY-4.0",
+  "bugs": {
+    "url": "https://github.com/j-mosij/ternaryui/issues"
+  },
+  "homepage": "https://github.com/j-mosij/ternaryui#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "dependencies": {
+    "dompurify": "^3.0.6"
+  }
+}
