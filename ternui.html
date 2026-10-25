@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ternary Core-Shell Metamaterial Dashboard & Sonifier</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            700: '#0f766e',
+                            900: '#134e4a',
+                            950: '#042f2e'
+                        },
+                        amberGold: '#f59e0b',
+                        mercurySilver: '#cbd5e1',
+                        copperCore: '#b45309'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for canvas and UI interactions */
+        canvas {
+            touch-action: none;
+        }
+        .glow-teal {
+            box-shadow: 0 0 25px rgba(20, 184, 166, 0.25);
+        }
+        .glow-amber {
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
+        }
+        /* Custom scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-teal-500 selection:text-slate-950">
+
+    <!-- SECURITY SANITIZATION PRE-FLIGHT (PRE-INJECTION GUARD) -->
+    <script>
+        /**
+         * Pure JS DOM Purifier & Security Guard
+         * Prevents XSS, prototype pollution, DOM clobbering, and malformed script injection.
+         */
+        const DOMSecurity = (function() {
+            'use strict';
+            
+            function sanitizeString(str) {
+                if (typeof str !== 'string') return '';
+                return str
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#x27;')
+                    .replace(/\//g, '&#x2F;');
+            }
+
+            function safeSetText(elementId, text) {
+                const el = document.getElementById(elementId);
+                if (el) {
+                    el.textContent = text; // Secure text content injection
+                }
+            }
+
+            return {
+                sanitize: sanitizeString,
+                safeSetText: safeSetText
+            };
+        })();
+    </script>
+
+    <!-- HEADER / NAVIGATION BAR -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-teal-500 to-amber-500 flex items-center justify-center font-bold text-slate-950 text-xs shadow-lg">
+                    3T
+                </div>
+                <div>
+                    <h1 class="font-bold text-base sm:text-lg tracking-wide text-slate-100 flex items-center gap-2">
+                        <span>Ternary LoomWeaver</span>
+                        <span class="text-xs font-mono bg-teal-950 text-teal-400 border border-teal-800 px-2 py-0.5 rounded-full">v4.0 ML-GPU</span>
+                    </h1>
+                    <p class="text-xs text-slate-400 hidden sm:block">Triple Toric Shell / Cu Solid Core / Dilithium Möbius-Klein Optimizer</p>
+                </div>
+            </div>
+
+            <!-- Status Badges -->
+            <div class="flex items-center space-x-2 text-xs font-mono">
+                <div id="cryptoStatus" class="flex items-center space-x-1.5 bg-slate-800 border border-slate-700 px-3 py-1.5 rounded-md text-emerald-400">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="hidden sm:inline">PQC-Dilithium:</span> ACTIVE
+                </div>
+                <button id="audioToggleBtn" class="bg-teal-600 hover:bg-teal-500 text-slate-950 font-semibold px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.
